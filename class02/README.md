@@ -27,12 +27,26 @@ Some information for syntax:
 
 - This is a special method automatically called when a new object is created.
 
-  `self`
+`self`
 
 - This refers to the specific object being initialized.
 
-  `self.name = name`
+`self.name = name`
 
 - This means:
   take the argument name
   store it inside the current object under the attribute/property name
+
+### Some terminology:
+
+```
+class Product: # this is our class
+    def __init__(self, name): # this is a constructor
+        self.name = name # this is a property
+
+    def greet(self): # this is a method!
+        print("hello")
+
+# this is an instance of our object
+p1 = Product("Banana")
+```

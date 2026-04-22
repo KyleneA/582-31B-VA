@@ -26,7 +26,6 @@ gpa2 = 4.2
 # student1.program = "Web Development"
 # student1.favourite_food = "burger"
 
-
 # let's model our class for real!
 class Student:
     # let's say what data student needs
@@ -40,7 +39,6 @@ class Student:
     def print_info(self): # in object orineted programming, we call this a method!
         print(name, program, gpa)
     
-
 student1 = Student("Jane", "Web Development", 3.7)
 print(student1.program)
 student1.print_info()
