@@ -12,7 +12,7 @@ class Friend():
 
     def greet(self):
         print("Hello", self.name, "!")
-        print(f"Greetings, {self.name}!")
+        # print(f"Greetings, {self.name}!")
 
 friend1 = Friend("Bob", "Builder", 25, 12, "fixing things")
 friend1.print_friend()
