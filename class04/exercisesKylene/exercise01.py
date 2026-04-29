@@ -13,13 +13,26 @@ class Employee:
             bonus_salary = self.base_salary * (1 + self.bonus)
             return bonus_salary
         return self.base_salary
+    
+    def get_salary_multiplier(self):
+        multiplier = (self.sales_count - 10) * self.bonus
+
+        if (multiplier > 0):
+            bonus_salary = self.base_salary * (1 + multiplier)
+            return bonus_salary
+        return self.base_salary
 
 employee1 = Employee("Bob", 7)
 employee2 = Employee("Rob", 10)
 employee3 = Employee("Ron", 11)
-employee4 = Employee("Von", 40)
+employee4 = Employee("Von", 14)
 
 print(employee1.name, employee1.get_salary())
 print(employee2.name, employee2.get_salary())
 print(employee3.name, employee3.get_salary())
 print(employee4.name, employee4.get_salary())
+
+print(employee1.name, employee1.get_salary_multiplier())
+print(employee2.name, employee2.get_salary_multiplier())
+print(employee3.name, employee3.get_salary_multiplier())
+print(employee4.name, employee4.get_salary_multiplier())
