@@ -74,3 +74,43 @@ print(product1.price)
 print(product2.price)
 print(product1.category)
 print(product2.category)
+
+
+# shadowing a class attribute
+print('-----')
+class Employee:
+    bonus = 0.5 # this is a class attribute
+
+    def __init__(self, name):
+        self.name = name # this is an instance attribute
+
+employee1 = Employee("John")
+employee2 = Employee("Jane")
+
+print(f"Employee 1 Bonus: {employee1.bonus}") # 0.5
+print(f"Employee 2 Bonus: {employee2.bonus}") # 0.5
+
+Employee.bonus = 1 # change class attribute globally
+
+print(f"Employee 1 Bonus: {employee1.bonus}") # 1
+print(f"Employee 2 Bonus: {employee2.bonus}") # 1
+
+employee1.bonus = 2 # changing the shadow attribute
+                    # this doesn't change the class attribute itself!
+                    # we create a new instance attribute on employee1!
+
+employee3 = Employee("test")
+
+print(f"Employee 1 Bonus: {employee1.bonus}") # 2
+print(f"Employee 2 Bonus: {employee2.bonus}") # 1
+print(f"Employee 3 Bonus: {employee3.bonus}") # 1
+
+Employee.bonus = 0.5 # change class attribute globally back to 0.5
+
+print(f"Employee 1 Bonus: {employee1.bonus}") # 2
+print(f"Employee 2 Bonus: {employee2.bonus}") # 0.5
+print(f"Employee 3 Bonus: {employee3.bonus}") # 0.5
+
+# the process above is shadowing
+# we are creating a new instance attribute based on a class attribute.
+
