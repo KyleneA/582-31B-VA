@@ -1,6 +1,7 @@
 # write a class of employee
 
 # class attribute is :
+    # base salary
     # bonus = 0.25
     # company name
 
