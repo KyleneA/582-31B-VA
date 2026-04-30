@@ -114,3 +114,22 @@ print(f"Employee 3 Bonus: {employee3.bonus}") # 0.5
 # the process above is shadowing
 # we are creating a new instance attribute based on a class attribute.
 
+
+# case study
+
+# Good use cases for class attributes are :
+    # shared across all instances
+    # conceptually the same for the whole class
+    # they're usually configuration-like or constant-like
+    # they're counters or class-wide metadata
+
+# Bad use cases for class attributes are :
+    # values that should usually be differented per object.
+    # any value that changes often, or is individually different
+
+# let's look at some examples:
+    # school name --> class attribute
+    # max capacity --> class attribute 
+    # account password --> instance attribute
+    # tax rate --> class attribute
+    # course grade --> instance attribute
