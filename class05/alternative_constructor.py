@@ -22,15 +22,21 @@ class Student:
         name, program = data.split(",")
         return cls(name, program)
     
+    # what if we want a new object out not all of the inputs
     @classmethod
-    def from_form(cls, data):
-        # parse the data according to how it's received!
-        pass
+    def newly_admitted(cls, name): # another alternative constructor
+        return cls(name, "")
+    
 
 # student1 = Student("Alice", "Web Development") # valid!
 student1 = Student.from_string("Alice,Web Development") # Alternative Constructor
+student2 = Student.newly_admitted("John")
 
 print(f"{student1.name} studies in {student1.program}")
+
+print(f"{student2.name} studies in {student2.program}")
+
+
 
 # in real program, data often comes in a variety of formats! 
 
@@ -45,3 +51,6 @@ print(f"{student1.name} studies in {student1.program}")
 # value1,value2,value3, etc..
 
 # using the alternative constructor we can parse the data properly!
+
+# alternative constructors are important, because the object always stays the same but the input
+# format changes.
