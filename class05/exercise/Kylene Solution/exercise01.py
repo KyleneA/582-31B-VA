@@ -7,7 +7,7 @@ class Product:
     @classmethod
     def from_string(cls, data):
         name, price, category = data.split(",")
-        return cls(name, int(price), category)
+        return cls(name, int(price), category) #price can be float(price) to allow decimals
     
     @classmethod
     def from_dict(cls, data):
