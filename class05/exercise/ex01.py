@@ -10,6 +10,7 @@
     # 1. separate constructor arguments (__init__)
     # 2. one comma-separated string
     # 3. a dictionary
+    # 4. a new product with no category and price (just a name)
 
 # you need to design the class so all three formats can be used cleanly.
 
