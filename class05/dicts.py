@@ -12,7 +12,9 @@
 # FORMULA:
 # VARIABLE = {KEY:VALUE, KEY2:VALUE, etc..}
 
-my_dict = {"name": "Jane", "program": "Computer Science", "semester": 3}
+# you can use all of the data types for the values
+# keys are usually as strings
+my_dict = {"name": "Jane", "program": "Computer Science", "semester": 3, "classes": ["31b", "31f"]}
 print(my_dict)
 print(my_dict["name"]) # the value that is associated to the key
 print(my_dict["program"])
