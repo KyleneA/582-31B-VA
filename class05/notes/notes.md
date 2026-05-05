@@ -2,6 +2,7 @@
 ### Instance method
 - first parameter is always `self`
 - used only on ONE object
+
 ### Class methods
 - Important to add `@classmethod` to indicate that the method will be working with `self`
 - in place of `self` (for specific object instance of class), use `cls` to access class attributes
@@ -34,6 +35,32 @@ student2.introduce()
 ## class method
 Student.show_school() # gets information about 
 ```
+## Static Methods
+> [!Definition]
+> belongs to class
+> doesn't use `self` or `cls`
+> marked with `@staticmethod`
+
+- Static methods are usually used as helper functions
+	- accessible to do something specific
+
+## Instance vs Class vs Static Methods
+- Instance methods:
+    - no decorator (@ something)
+    - first parameter: self (ALWAYS)
+    - works with only one object
+    - reads/modifies instance state
+
+- Class methods:
+    - decorator: @classmethod
+    - first parameter is: cls (ALWAYS)
+    - works with class-level state (class attributes, etc.)
+    - often used for alternative constructors or shared behaviour
+
+- Static methods:
+    - decorator: @staticmethod
+    - no self or cls 
+    - usually used as utility/helper logic
 
 ## Design Pattern: Alternative Constructor
 > [!definition]
@@ -106,33 +133,6 @@ print("prod4: ", prod4.name, prod4.price, prod4.category)
 >> ```
 >> variable = {key1: value1, key2: value2, key3: value3, ...}
 >> ``` 
-
-## Static Methods
-> [!Definition]
-> belongs to class
-> doesn't use `self` or `cls`
-> marked with `@staticmethod`
-
-- Static methods are usually used as helper functions
-	- accessible to do something specific
-
-## Instance vs Class vs Static Methods
-- Instance methods:
-    - no decorator (@ something)
-    - first parameter: self (ALWAYS)
-    - works with only one object
-    - reads/modifies instance state
-
-- Class methods:
-    - decorator: @classmethod
-    - first parameter is: cls (ALWAYS)
-    - works with class-level state (class attributes, etc.)
-    - often used for alternative constructors or shared behaviour
-
-- Static methods:
-    - decorator: @staticmethod
-    - no self or cls 
-    - usually used as utility/helper logic
 
 ## Common Mistakes
 - forgetting `cls` in a class method
