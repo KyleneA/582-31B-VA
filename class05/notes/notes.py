@@ -67,3 +67,33 @@ class Student:
         return cls(name, "")
 
 stud1 = Student.from_string("Alice,web development")
+
+# Static Methods
+class Student:
+    @staticmethod
+    def is_valid_name(name):
+        if (len(name.strip()) > 0):
+            return True
+        else:
+            return False
+    
+    @staticmethod
+    def format_grade(grade):
+        return f"{grade:.2f}" # :.2f notation needs to be within f"" to work
+
+# Instance methods:
+    # no decorator (@ something)
+    # first parameter: self (ALWAYS)
+    # works with only one object
+    # reads/modifies instance state
+
+# Class methods:
+    # decorator: @classmethod
+    # first parameter is: cls (ALWAYS)
+    # works with class-level state (class attributes, etc.)
+    # often used for alternative constructors or shared behaviour
+
+# Static methods:
+    # decorator: @staticmethod
+    # no self or cls 
+    # usually used as utility/helper logic
