@@ -77,3 +77,23 @@ class Product:
         
 # it is very common in backend programming to have static methods that are helper functions
 # because these will be used all over your code, in a standardized manner.
+
+
+                                            # Comparison:
+
+# Instance methods:
+    # no decorator (@ something)
+    # first parameter: self (ALWAYS)
+    # works with only one object
+    # reads/modifies instance state
+
+# Class methods:
+    # decorator: @classmethod
+    # first parameter is: cls (ALWAYS)
+    # works with class-level state (class attributes, etc.)
+    # often used for alternative constructors or shared behaviour
+
+# Static methods:
+    # decorator: @staticmethod
+    # no self or cls 
+    # usually used as utility/helper logic
