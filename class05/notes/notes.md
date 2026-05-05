@@ -1,3 +1,11 @@
+## Instance methods vs class methods
+### Instance method
+- first parameter is always `self`
+- used only on ONE object
+### Class methods
+- Important to add `@classmethod` to indicate that the method will be working with `self`
+- in place of `self` (for specific object instance of class), use `cls` to access class attributes
+```python
 # instance vs class methods
 class Student:
     school_name = "ABC College"
@@ -25,33 +33,14 @@ student2.introduce()
 
 ## class method
 Student.show_school() # gets information about 
+```
 
-print()
+## Design Pattern: Alternative Constructor
+> [!definition]
+> A class method that allows to create class objects using different input formats
+> ex: comma separated strings (csv files), JSON, database row, dictionary
 
-## Looking at HW exercise
-class Product:
-    count = 0
-
-    def __init__(self, name):
-        self.name = name
-        self.increment_count() # to increase count when object instance created
-    
-    @classmethod
-    def show_count(cls):
-        print(f"Total product: {cls.count}")
-    
-    @classmethod
-    def increment_count(cls):
-        cls.count += 1
-
-prod1 = Product("mouse")
-prod2 = Product("camera")
-Product.show_count()
-print(f"prod1.count: {prod1.count}", f"prod2.count: {prod2.count}")
-
-print()
-
-# Design Pattern: Alternative Constructor
+```python
 class Student:
     def __init__(self, name, program):
         self.name = name
@@ -63,3 +52,4 @@ class Student:
         return cls(name, program)
 
 stud1 = Student.from_string("Alice,web development")
+```
