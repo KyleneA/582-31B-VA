@@ -50,6 +50,10 @@ class Student:
     def from_string(cls, data):
         name, program = data.split(",")
         return cls(name, program)
+    
+    @classmethod
+    def newly_admitted(cls, name):
+        return cls(name, "")
 
 stud1 = Student.from_string("Alice,web development")
 ```
