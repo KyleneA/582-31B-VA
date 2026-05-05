@@ -41,4 +41,39 @@ class Student:
     def show_school(cls): # cls as signature
         print(f"School: {cls.school_name}") #cls instead of self
 
-Student.show_school()
+Student.show_school() # the method is not about one specific student!
+                      # it is about the whole class!
+
+print()
+# compare them directly:
+    # instance methods:
+        # first parameter : self (ALWAYS!)
+        # uses only one object
+    
+    # Class method:
+        # first parameter : cls (ALWAYS!)
+        # uses the class
+class Product:
+    count = 0
+
+    def __init__(self, name):
+        self.name = name
+        self.increment_count()
+        # Product.count += 1
+    
+    # class method that accesses class attribute
+    @classmethod
+    def show_count(cls):
+        print(f"Total products: {cls.count}")
+
+    # class method that updates a shared class attribute
+    @classmethod
+    def increment_count(cls):
+        cls.count += 1
+
+p1 = Product("Keyboard")
+p2 = Product("Mouse")
+p3 = Product("Keyboard")
+
+Product.show_count()
+
