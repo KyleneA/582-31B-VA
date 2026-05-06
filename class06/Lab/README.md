@@ -300,3 +300,76 @@ Run:
 ```
 git log --oneline --graph --all
 ```
+
+## Commands You Will Probably Need
+
+- Initialize repository
+
+```
+git init
+```
+
+- Check status
+
+```
+git status
+```
+
+- Stage files
+
+```
+git add .
+```
+
+- Commit
+
+```
+git commit -m "Your message here"
+```
+
+- Create and switch branch
+
+```
+git checkout -b branch-name
+```
+
+- Switch branch
+
+```
+git checkout main
+```
+
+- Merge branch
+
+```
+git merge branch-name
+```
+
+- View branches
+
+```
+git branch
+```
+
+- View history
+
+```
+git log --oneline --graph --all
+```
+
+## Optional Starter Template
+
+- `book.py`
+
+```
+class Book:
+    pass
+```
+
+- `main.py`
+
+```
+from book import Book
+
+# create and test your objects here
+```
