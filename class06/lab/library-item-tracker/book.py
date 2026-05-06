@@ -1,5 +1,6 @@
 class Book:
     library_name = "Central Library"
+    count = 0
 
     @classmethod
     def change_library_name(cls, new_name):
@@ -15,6 +16,8 @@ class Book:
         self.title = title
         self.author = author
         self.available = available
+
+        Book.count += 1
     
     def borrow(self):
         if (self.available):
