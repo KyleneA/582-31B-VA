@@ -6,6 +6,10 @@ class Book:
     def change_library_name(cls, new_name):
         cls.library_name = new_name
 
+    @classmethod
+    def show_count(cls):
+        print(f"Total books: {cls.count}")
+
     @staticmethod
     def is_valid_title(title):
         if (len(title) > 0):

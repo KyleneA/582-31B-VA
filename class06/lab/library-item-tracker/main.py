@@ -25,6 +25,7 @@ print()
 print(Book.library_name)
 Book.change_library_name("Montreal Central Library")
 print(Book.library_name)
+Book.show_count()
 
 # Testing Static Method
 title1 = Book.is_valid_title("")
