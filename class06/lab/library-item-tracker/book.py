@@ -29,4 +29,4 @@ class Book:
             print(f"This copy of {self.title} by {self.author} does not belong to us")
     
     def display_info(self):
-        print(f"Book: '{self.title}' by {self.author}. Availability: {self.available}")
+        print(f"'{self.title}' by {self.author}. Availability: {self.available}")
