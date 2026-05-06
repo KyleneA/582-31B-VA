@@ -31,3 +31,10 @@ Book.show_count()
 title1 = Book.is_valid_title("")
 title2 = Book.is_valid_title("O")
 print(f"title1 is valid: {title1}; title2 is valid: {title2}")
+
+print()
+
+# Testing from_string method
+string = "Clean Code,Robert C. Martin,True"
+book3 = Book.from_string(string)
+book3.display_info()

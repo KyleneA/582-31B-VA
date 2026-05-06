@@ -23,6 +23,11 @@ class Book:
 
         Book.count += 1
     
+    @classmethod
+    def from_string(cls, data):
+        title, author, available = data.split(",")
+        return cls(title, author, available)
+
     def borrow(self):
         if (self.available):
             self.available = False
