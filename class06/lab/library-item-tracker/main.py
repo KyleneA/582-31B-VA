@@ -17,3 +17,14 @@ book1.borrow()
 book1.display_info()
 book2.return_book()
 book2.display_info()
+
+print()
+# testing class method
+print(Book.library_name)
+Book.change_library_name("Montreal Central Library")
+print(Book.library_name)
+
+# testing static method
+title1 = Book.is_valid_title("")
+title2 = Book.is_valid_title("O")
+print(f"title1 is valid: {title1}; title2 is valid: {title2}")
