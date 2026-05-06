@@ -38,3 +38,7 @@ print()
 string = "Clean Code,Robert C. Martin,True"
 book3 = Book.from_string(string)
 book3.display_info()
+
+#Testing added genre attribute
+book4 = Book("Lake", "Banana Yoshimoto", True, "psychological exploration")
+book4.display_info()

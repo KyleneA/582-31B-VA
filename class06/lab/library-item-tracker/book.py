@@ -16,10 +16,11 @@ class Book:
             return True
         return False
 
-    def __init__(self, title, author, available):
+    def __init__(self, title, author, available, genre = "n/a"):
         self.title = title
         self.author = author
         self.available = available
+        self.genre = genre
 
         Book.count += 1
     
@@ -41,4 +42,4 @@ class Book:
             print(f"This copy of {self.title} by {self.author} does not belong to us")
     
     def display_info(self):
-        print(f"'{self.title}' by {self.author}. Availability: {self.available}")
+        print(f"'{self.title}' [genre: {self.genre}] by {self.author}. Availability: {self.available}")
