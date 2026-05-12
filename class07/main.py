@@ -127,7 +127,8 @@ class PayPal(FinancialInstitution):
         pass
 
 visa_card = Visa("123")
-paypal_account = PayPal("456", 100)
+tam_paypal_account = PayPal("456", 100)
+kamyar_paypal_account = PayPal("45642624", 100)
 
 print("===========")
 def checkout(amount, fi):
@@ -135,4 +136,4 @@ def checkout(amount, fi):
 
     fi.payment(amount)
 
-checkout(50, paypal_account)
+checkout(50, tam_paypal_account)
