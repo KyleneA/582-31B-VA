@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 	
 class Shape(ABC): # ABC means that this class is abstract
     @abstractmethod
-    def area (shelf):
+    def area(self):
         pass 
 
 class Rectangle(Shape):
