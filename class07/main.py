@@ -182,3 +182,14 @@ animal_sound(cat1)
 # 1. The design is clearer (it's intentional!)
 # 2. subclasses are required to implement the method
 # 3. the shared purpose is explicit!
+
+
+# Abstraction is good when:
+#   when several classes must follow the same contract
+#   when there's shared behaviour
+#   when we want consistency
+
+# Abstraction is overkill when:
+#   when there's no need for shared contract
+#   for small one-off classes (specific classes that only do one thing)
+
