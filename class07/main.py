@@ -44,3 +44,95 @@ class Product:
 
 # let's get practical now!
 
+# the common approach to use interfaces in python is :
+# abstract base classes using the abs module
+
+# 1. import interfaces module 
+from abc import ABC, abstractmethod
+
+# ABSTRACT CLASS Shape
+class Shape(ABC): # ABC means this class is abstract
+    @abstractmethod # we mark a method that subclasses must implement
+    def area(self):
+        pass
+
+# VERY IMPORTANT: Shape on its own cannot and must not be instantiated directly.
+
+# shape = Shape()
+
+class Rectangle(Shape): # Implements Abstract class SHAPE
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    
+    # MUST define area(), otherwise it throws an error
+    def area(self): 
+        return self.width * self.height
+    
+class Circle(Shape): # Implements Abstract class SHAPE
+    def __init__(self, radius):
+        self.radius = radius
+
+    # MUST define area(), otherwise it throws an error
+    def area(self):
+        return 3.14 * self.radius * self.radius
+
+# here we see that both classes implement the abstract class SHAPE and its methods, but in their own way.
+# every Shape must provide an area() method
+
+rectangle = Rectangle(2, 4)
+circle = Circle(3)
+
+print(f"Rectangle's area is : {rectangle.area()}")
+print(f"Circle's area is : {circle.area()}")
+
+print("====================")
+# this could be the code that interacts with our classes
+def print_area(shape):
+    print(shape.area())
+
+print_area(rectangle)
+print_area(circle)
+
+# another example
+
+# This is our CONTRACT
+class FinancialInstitution(ABC):
+    @abstractmethod
+    def payment(self, amount):
+        pass
+
+class Visa(FinancialInstitution):
+    def __init__(self, card_number):
+        self.card_number = card_number
+        self.balance = 0
+
+    def payment(self, amount):
+        self.balance += amount
+        print(f"{amount} withdrawn! by Visa")
+
+    def show_balance(self):
+        print(self.balance)
+
+class PayPal(FinancialInstitution):
+    def __init__(self, card_number, debit_balance):
+        self.card_number = card_number
+        self.debit_balance = debit_balance
+
+    def payment(self, amount):
+        self.debit_balance -= amount
+        print(f"{amount} paid by Paypal!")
+
+    def donate(self):
+        pass
+
+visa_card = Visa("123")
+paypal_account = PayPal("456", 100)
+
+print("===========")
+def checkout(amount, fi):
+    print(f"You owe ${amount}")
+
+    fi.payment(amount)
+
+checkout(50, paypal_account)
