@@ -77,3 +77,56 @@ class PremiumAccount(Account):
 savingsAcc = SavingsAccount()
 premiumAcc = PremiumAccount()
 print(f"savingsAcc fee: {savingsAcc.calculate_fee()}, premiumAcc fee: {premiumAcc.calculate_fee()}")
+
+print()
+print("Exercise 4")
+
+class Employee(ABC):
+    @abstractmethod
+    def calculate_salary(self):
+        pass
+
+class FullTimeEmployee(Employee):
+    hourly_wage = 44.44
+    weekly_hours = 40
+    weeks_paid = 52
+
+    def calculate_salary(self):
+        return self.hourly_wage * self.weekly_hours * self.weeks_paid
+
+class PartTimeEmployee(Employee):
+    hourly_wage = 15
+    weekly_hours = 20
+    weeks_paid = 32
+
+    def calculate_salary(self):
+        return self.hourly_wage * self.weekly_hours * self.weeks_paid
+
+ftEmployee = FullTimeEmployee()
+ptEmployee = PartTimeEmployee()
+
+print(f"full-time salary: {ftEmployee.calculate_salary()}")
+print(f"part-time salary: {ptEmployee.calculate_salary()}")
+
+print()
+print("Exercise 5")
+
+class Media(ABC):
+    @abstractmethod
+    def play(self, media):
+        pass
+
+class Song(Media):
+    def play(self, media):
+        print(f"The {media} song is playing")
+
+
+class Video(Media):
+    def play(self, media):
+        print(f"Video {media} is now playing")
+
+song = Song()
+video = Video()
+
+song.play("Bad by Michael Jackson")
+video.play("Baby shark")
