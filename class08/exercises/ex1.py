@@ -1,5 +1,4 @@
 # 1. identify visibility intent
-
 class User:
     def __init__(self, username, email, password_hash):
         self.username = username
@@ -8,7 +7,6 @@ class User:
 
 # which attributes are public? which are intended for internal use?
 
-
 # 2. redesign the following class to improve encapsulation
 class Course:
     def __init__(self, title, seats):
@@ -16,3 +14,15 @@ class Course:
         self.seats = seats
 
 
+# 3. Create StudentAccount class:
+
+# public username
+# internal __credits
+# methods: add_credits() - use_credits() - show_credits()
+
+
+# 4. Create a MovieTicket class:
+
+# public movie_title
+# internal available_seats
+# methods: book_seat() - cancel_seat() - show_status()
