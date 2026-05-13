@@ -6,6 +6,8 @@ class User:
         self.__password_hash = password_hash
 
 # which attributes are public? which are intended for internal use?
+# email and password are internal use , username is public
+
 
 # 2. redesign the following class to improve encapsulation
 class Course:
