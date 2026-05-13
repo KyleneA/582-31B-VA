@@ -47,5 +47,5 @@ print(ex2._Student__gpa) # writing the attribute like this allows us to access i
 #### Protected
 Has 1 underscore before variable name(`_variable`)
 ```python
-...
+
 ```
