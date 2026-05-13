@@ -1,3 +1,4 @@
+# =============================================
 # 1. Create an abstract class:
 # Vehicle
 # abstract method: move()
@@ -8,7 +9,7 @@
 
 # Each must implement move() differently.
 
-
+# =============================================
 # 2. Create an abstract class:
 # FileHandler
 # abstract methods: 
@@ -21,7 +22,7 @@
 
 # They can just print messages instead of reading real files.
 
-
+# =============================================
 # 3. Create an abstract class:
 # Account
 # abstract method: calculate_fee()
@@ -32,7 +33,7 @@
 
 # Each returns a different fee.
 
-
+# =============================================
 # 4. abstract Employee
 # Create:
 # abstract class Employee
@@ -44,6 +45,7 @@
 
 # Each should calculate salary differently.
 
+# =============================================
 # 5. abstract Media
 # Create:
 # abstract class Media
