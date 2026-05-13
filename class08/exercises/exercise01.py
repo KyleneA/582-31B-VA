@@ -5,8 +5,24 @@
 # Exercise 2
 class Course:
     def __init__(self, title, seats):
-        self.__title = title
-        self.seats = seats
+        self.title = title
+        self.__seats = seats # make seats private instead
+    
+    def add_seats(self, amount):
+        self.__seats += amount
+        print(f"{amount} seats added")
+    
+    def remove_seats(self, amount):
+        if (amount <= self.__seats):
+            self.__seats -= amount
+        else:
+            print("Not enough seats")
+    
+    def show_info(self):
+        print(f"{self.title} has {self.__seats} seats")
+
+course = Course("adv web programming", 15)
+course.show_info()
 
 # Exercise 3
 class StudentAccount:
@@ -17,10 +33,14 @@ class StudentAccount:
     def add_credits(self, amount):
         if (amount > 0):
             self.__credits += amount
+        else:
+            print("operation failed. Amount is invalid")
     
     def use_credits(self, amount):
         if (0 < amount <= self.__credits):
             self.__credits -= amount
+        else:
+            print("operation failed. Amount is invalid")
     
     def show_credits(self):
         print(f"Credit balance is {self.__credits}")
