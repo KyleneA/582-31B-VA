@@ -60,6 +60,7 @@ acc1.balance = -1000
 # 1. public
 name = "hi"
 
+# a poorly encapsulated class
 class Student:
     def __init__(self, name):
         self.name = name
@@ -99,3 +100,62 @@ print(student3._Student__gpa)
 
 # the goal of using this private accessor is to 
 #   avoid accidental direct access
+
+# poorly encapsulated example
+class BankAccount:
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.balance = balance
+
+print("===================")
+# how can we design it in a better encapsulated way?
+class BankAccount:
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.__balance = balance # private!
+        # __balance is signaling internal use! within the class itself
+
+    # the following methods will handle data internally
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+
+    def show_balance(self):
+        print(f"Balance is: {self.__balance}")
+
+bank_account1 = BankAccount("Jane", 500)
+# bank_account1.__balance = 1000 # this would throw an error
+
+# the method is handling the interaction
+bank_account1.deposit(500) # deposit() handles data internally!
+bank_account1.show_balance() # show_balance() accesses data internally and then shows us!
+bank_account1.withdraw(200) # withdraw handles data internally
+bank_account1.show_balance() # show_balance() accesses data internally and then shows us!
+
+# why is this better?
+#   rules are handled through methods
+#   raw external data mutation/change is prohibited!
+
+
+# one more example!
+
+class Temperature:
+    def __init__(self, celsius):
+        self.__celsius = celsius
+
+    def set_celsius(self, value):
+        if value >= -273: # we're protecting our data!
+            self.__celsius = value
+        else:
+            print("Invalid temperature!")
+
+    def show_celsius(self):
+        print(f"{self.__celsius} C")
+
+temp1 = Temperature(8)
+temp1.set_celsius(23)
+temp1.show_celsius()
