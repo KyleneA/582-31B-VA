@@ -116,3 +116,33 @@ acc.withdraw(50)
 print(acc.balance)
 print()
 
+# Exercise 06
+class Product2:
+    def __init__(self, name, price, quantity):
+        self.name = name
+        self.__price = price
+        self.quantity = quantity
+    
+    @property
+    def price(self):
+        return self.__price
+    
+    @price.setter
+    def price(self, value):
+        if value > 0:
+            self.__price = value
+        else:
+            print("Value cannot be neagative")
+    
+    @property
+    def inventory_value(self):
+        return self.quantity * self.price
+
+product2 = Product2("mouse", 30, 25)
+print(product2.price)
+product2.price = -5
+print(product2.price)
+product2.price = 15
+print(product2.price)
+print(product2.inventory_value)
+print()
