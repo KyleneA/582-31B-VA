@@ -146,3 +146,30 @@ product2.price = 15
 print(product2.price)
 print(product2.inventory_value)
 print()
+
+# Exercise 07
+class Movie:
+    def __init__(self, title, rating):
+        if 0 < rating < 10:
+            self.title = title
+            self.__rating = rating
+        else:
+            print("Ratings can only be between 0 and 10")
+    
+    @property
+    def rating(self):
+        return self.__rating
+    
+    @rating.setter
+    def rating(self, value):
+        if 0 < value < 10:
+            self.__rating = value
+        else:
+            print("Ratings can only be between 0 and 10")
+
+movie = Movie("Totoro", 8.6)
+print(movie.rating)
+movie.rating = -9
+print(movie.rating)
+movie.rating = 9
+print(movie.rating)
