@@ -16,6 +16,14 @@ class Temperature:
             self.__celcius = value
         else:
             print("Invalid temperature")
+    
+    # setter
+    @celcius.setter
+    def celcius(self, value):
+        if value >= -273.15:
+            self.__celcius = value
+        else:
+            print("Invalid temperature")
 
 new_t = Temperature(25)
 print(new_t.celcius) # prints 25
