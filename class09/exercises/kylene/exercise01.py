@@ -22,3 +22,28 @@ student = Student("Bob", 3.6)
 print("Bob: ", student.gpa)
 student.gpa = 4.0
 print("Bob: ", student.gpa)
+print()
+
+# Exercise 02
+class Product:
+    def __init__(self, name, price):
+        self.name = name
+        self.__price = price
+    
+    @property
+    def price(self):
+        return self.__price
+    
+    @price.setter
+    def price(self, value):
+        if value > 0:
+            self.__price = value
+        else:
+            print("Price must be a positive number")
+
+product = Product("Bench", 150)
+print("Bench: ", product.price)
+product.price = 100
+print("Bench: ", product.price)
+product.price = -100
+print()
