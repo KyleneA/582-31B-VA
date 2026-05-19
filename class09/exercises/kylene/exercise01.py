@@ -74,3 +74,45 @@ class Person:
 person = Person("Bob", "builder")
 print(person.full_name)
 print()
+
+# Exercise 05
+class Account:
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.__balance = balance
+    
+    @property
+    def balance(self):
+        return self.__balance
+    
+    @balance.setter
+    def balance(self, value):
+        if value > 0:
+            self.__balance = value
+        else:
+            print("Balance cannot be a negative value")
+    
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+        else:
+            print("Deposit amount must be a postitive value")
+    
+    def withdraw(self, amount):
+        if amount > 0:
+            self.balance -= amount
+        else:
+            print("Deposit amount must be a postitive value")
+
+acc = Account("Rob", 200)
+print(acc.balance)
+acc.deposit(-50)
+print(acc.balance)
+acc.deposit(50)
+print(acc.balance)
+acc.withdraw(-50)
+print(acc.balance)
+acc.withdraw(50)
+print(acc.balance)
+print()
+
