@@ -47,3 +47,16 @@ product.price = 100
 print("Bench: ", product.price)
 product.price = -100
 print()
+
+# Exercise 03
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+    
+    @property
+    def area(self):
+        return 3.1415 * (self.radius * self.radius)
+
+circle = Circle(2)
+print(circle.area)
+print()
