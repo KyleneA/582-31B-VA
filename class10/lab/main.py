@@ -1,0 +1,12 @@
+from student_record import StudentRecord
+
+student1 = StudentRecord("", 3.2, 12)
+student2 = StudentRecord("Bob", -3.6, 62)
+student3 = StudentRecord("Rob", 3.0, -22)
+print()
+student1 = StudentRecord("Don", 3.2, 12)
+student2 = StudentRecord("Bob", 3.6, 62)
+student3 = StudentRecord("Rob", 3.0, 22)
+student1.display_info()
+student2.display_info()
+student3.display_info()
