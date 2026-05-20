@@ -1,4 +1,5 @@
 from student_record import StudentRecord
+from course_section import CourseSection
 
 student1 = StudentRecord("", 3.2, 12)
 student2 = StudentRecord("Bob", -3.6, 62)
@@ -19,3 +20,19 @@ student2.update_gpa(4.0)
 print()
 student1.display_info()
 student2.display_info()
+
+print("==========")
+
+course1 = CourseSection("", -20, 10)
+course2 = CourseSection("Adv. web programming", -20, 10)
+course3 = CourseSection("Web interface programming", 20, -10)
+course4 = CourseSection("Applied UX UI", 20, 30)
+print()
+course1 = CourseSection("Intro to CMS", 20, 17)
+course2 = CourseSection("Adv. web programming", 30, 10)
+course3 = CourseSection("Web interface programming", 20, 16)
+course4 = CourseSection("Applied UX UI", 20, 6)
+course1.display_info()
+course2.display_info()
+course3.display_info()
+course4.display_info()
