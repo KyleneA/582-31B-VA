@@ -5,7 +5,7 @@ class CourseSection:
     
     @capacity.setter
     def capacity(self, value):
-        if (value < 0):
+        if (value <= 0):
             print("Course capacity must be greater than 0")
 
         else:
@@ -25,8 +25,8 @@ class CourseSection:
     def __init__(self, title, capacity, enrolled):
         if (len(title) == 0):
             print("Course title cannot be empty")
-        elif (capacity < 0): #To ensure that error message prints if capacity cannot be created
-            print("Course capacity must be greater than 0")
+        # elif (capacity < 0): #To ensure that error message prints if capacity cannot be created
+        #     print("Course capacity must be greater than 0")
         else:
             self.title = title
             self.capacity = capacity
