@@ -1,16 +1,4 @@
 class StudentRecord:
-    def __init__(self, name, gpa, credits):
-        if (len(name) == 0 ):
-            print("Student name cannot be empty")
-        elif ((0.0 > gpa) or (gpa > 4.0)):
-            print("Student GPA must be between 0.0 and 4.0")
-        elif (credits <= 0):
-            print("Student credits must be greater or equal to 0")
-        else:
-            self.name = name
-            self.__gpa = gpa
-            self.__credits = credits
-    
     @property
     def gpa(self):
         return self.__gpa
@@ -32,6 +20,15 @@ class StudentRecord:
             print("Student credits must be greater or equal to 0")
         else:
             self.__credits = value
+
+    def __init__(self, name, gpa, credits):
+        if (len(name) == 0 ):
+            print("Student name cannot be empty")
+        else:
+            self.name = name
+            self.gpa = gpa
+            self.credits = credits
+    
 
     def display_info(self):
         return print(f"Student: name {self.name} - GPA {self.gpa} - credits: {self.credits}")
