@@ -35,3 +35,15 @@ class CourseSection:
     def display_info(self):
         print(f"CourseSection: title {self.title} - capacity {self.capacity} - enrolled {self.enrolled}")
     
+    def register_student(self):
+        new_enrolled = self.enrolled + 1
+        if (new_enrolled > self.capacity):
+            print("Failed to register student. This course is at capacity")
+        else:
+            self.enrolled += 1
+    
+    def drop_student(self):
+        if (self.enrolled == 0):
+            print("Failed to drop student. There are no students enrolled in this course")
+        else:
+            self.enrolled -= 1
