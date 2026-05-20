@@ -4,7 +4,7 @@ class StudentRecord:
             print("Student name cannot be empty")
         elif ((0.0 > gpa) or (gpa > 4.0)):
             print("Student GPA must be between 0.0 and 4.0")
-        elif (credits < 0):
+        elif (credits <= 0):
             print("Student credits must be greater or equal to 0")
         else:
             self.name = name
@@ -28,10 +28,22 @@ class StudentRecord:
     
     @credits.setter
     def credits(self, value):
-        if (value < 0):
+        if (value <= 0):
             print("Student credits must be greater or equal to 0")
         else:
             self.__credits = value
 
     def display_info(self):
         return print(f"Student: name {self.name} - GPA {self.gpa} - credits: {self.credits}")
+    
+    def add_credits(self, amount):
+        if (amount < 0):
+            print("Amount of credits must be greater 0")
+        else:
+            self.__credits += amount
+    
+    def update_gpa(self, value):
+        if ((0.0 > value) or (value > 4.0)):
+            print("Student GPA must be between 0.0 and 4.0")
+        else:
+            self.gpa = value
