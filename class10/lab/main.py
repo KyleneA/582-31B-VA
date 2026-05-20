@@ -6,7 +6,7 @@ student2 = StudentRecord("Bob", -3.6, 62)
 student3 = StudentRecord("Rob", 3.0, -22)
 
 try:
-    student4 = StudentRecord()
+    student = StudentRecord()
 except TypeError as e:
     print("Error:", e)
 
@@ -22,10 +22,17 @@ student4.add_credits(-8)
 student5.add_credits(8)
 student6.update_gpa(-8)
 student6.update_gpa(8)
-student2.update_gpa(4.0)
+student4.update_gpa(1.0)
 print()
 student4.display_info()
 student5.display_info()
+print()
+student4.display_info()
+print(student4.academic_status)
+student5.display_info()
+print(student5.academic_status)
+student6.display_info()
+print(student6.academic_status)
 
 print()
 print("==========")

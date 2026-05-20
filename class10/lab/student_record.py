@@ -29,7 +29,15 @@ class StudentRecord:
             self.gpa = gpa
             self.credits = credits
     
-
+    @property
+    def academic_status(self):
+        if (self.gpa >= 3.5):
+            return "Honours"
+        elif (self.gpa >= 2.0):
+            return "Good Standing"
+        else:
+            return "At Risk"
+    
     def display_info(self):
         return print(f"Student: name {self.name} - GPA {self.gpa} - credits: {self.credits}")
     
