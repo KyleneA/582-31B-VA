@@ -87,3 +87,22 @@ course9.display_info()
 course9.remove_from_waitlist()
 course9.display_info()
 
+print()
+
+def transferStudent (originalSection, transferSection):
+    hasEnrolled = originalSection.enrolled > 0
+    hasSpace = transferSection.enrolled < transferSection.capacity
+    if (hasEnrolled and hasSpace):
+        originalSection.drop_student()
+        transferSection.register_student()
+        print(f"Student was successfully transfered to {transferSection.title}")
+    
+    if (not hasEnrolled):
+        print(f"Transfer failed.There are no students in {transferSection.title} section.")
+
+    if (not hasSpace):
+        print(f"Transfer failed.There is no space in {transferSection.title} section.")
+
+transferStudent(course8, course7)
+transferStudent(course9, course6)
+transferStudent(course5, course8)
