@@ -1,13 +1,21 @@
 from status import CourseStatus
 
 class Course:
-    def __init__(self, title, capacity, status):
-        if not isinstance(status, CourseStatus):
+    @property
+    def status(self):
+        return self.__status
+    
+    @status.setter
+    def status(self, value):
+        if not isinstance(value, CourseStatus):
             raise ValueError("Status must be a CourseStatus value")
         else:
-            self.title = title
-            self.capacity = capacity
-            self.status = status
+            self.__status = value
+    
+    def __init__(self, title, capacity, status):
+        self.title = title
+        self.capacity = capacity
+        self.status = status
     
     def display_info(self):
         print(f"{self.title} | Capacity: {self.capacity} | Status: {self.status.value}")
