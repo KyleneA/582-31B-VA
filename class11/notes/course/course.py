@@ -39,19 +39,24 @@ class Course:
         print(f"{self.title} | Capacity: {self.capacity} | Status: {self.status.value} | Delivery mode: {self.delivery_mode.value}")
 
     def close_registration(self):
-        if (self.status == CourseStatus.OPEN or self.status == CourseStatus.CANCELLED):
+        if (self.is_open_for_registration() or self.status == CourseStatus.CANCELLED):
             self.status = CourseStatus.CLOSED
         else:
             raise ValueError("This course is already closed for registration.")
     
     def cancel_course(self):
-        if (self.status == CourseStatus.OPEN or self.status == CourseStatus.CLOSED):
+        if (self.is_open_for_registration() or self.status == CourseStatus.CLOSED):
             self.status = CourseStatus.CANCELLED
         else:
             raise ValueError("This course has already been cancelled.")
 
     def reopen_course(self):
-        if (self.status == CourseStatus.CANCELLED or self.status == CourseStatus.CLOSED):
+        if (self.status == CourseStatus.CANCELLED):
             self.status = CourseStatus.OPEN
+        elif (self.status == CourseStatus.CLOSED):
+            raise ValueError("This course has been cancelled.")
         else:
             raise ValueError("This course is already open for resgistration.")
+    
+    def is_open_for_registration(self):
+        return self.status == CourseStatus.OPEN
