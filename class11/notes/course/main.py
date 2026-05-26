@@ -39,6 +39,11 @@ try:
 except ValueError as e:
     print("Error:", e)
 
+try:
+    course4 = Course("English 101", 20, "open", DeliveryMode.ONLINE)
+except ValueError as e:
+    print("Error:", e)
+
 # REFLECTION
 # What is the difference between a constant and an enum?
 ## Constant is a single variable that doesn't change that can be a string or number
