@@ -79,4 +79,7 @@ class Rectangle:
 rectangle = Rectangle(20, 5)
 print(rectangle.area)
 
-rectangle.area = 50 # doesn't work because the property has no setter
+try:
+    rectangle.area = 50 # doesn't work because the property has no setter
+except AttributeError as e:
+    print("Error:", e)
