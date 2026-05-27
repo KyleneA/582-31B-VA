@@ -1,9 +1,16 @@
 from abc import ABC, abstractmethod
+from enum import Enum
 
 class AbstractMethod(ABC):
     @abstractmethod
     def print_attribute(self):
         pass
+
+class EnumClass(Enum):
+    DEFAULT = "default option"
+    ATTRIBUTE1 = "option 1"
+    ATTRIBUTE2 = "option 2"
+    ATTRIBUTE3 = "option 3"
 
 class ClassName(AbstractMethod):
     # CONSTANT
@@ -26,9 +33,10 @@ class ClassName(AbstractMethod):
         print()
     
     # CONSTRUCTOR
-    def __init__(self, attribute, property_name):
+    def __init__(self, attribute, property_name, enum_attribute = EnumClass.DEFAULT):
         self.instance_attribute = attribute
         self.property_name = property_name
+        self.enum_attribute = enum_attribute
         self.show_instance_attributes()
 
     # ALTERNATIVE CONSTRUCTOR
@@ -44,6 +52,7 @@ class ClassName(AbstractMethod):
         return cls(attribute, property_name)
 
     # PROPERTIES
+    ## Stored managed property
     @property 
     def property_name(self):
         return self.__property_name # private property
@@ -56,9 +65,25 @@ class ClassName(AbstractMethod):
         else:
             raise ValueError("The value given doesn't fill the required condition")
     
+    @property
+    def enum_attribute(self):
+        return self.__enum_attribute
+    
+    @enum_attribute.setter
+    def enum_attribute(self, value):
+        if isinstance(value, EnumClass):
+            self.__enum_attribute = value
+        else:
+            raise ValueError("Enum attribute must be an EnumClass value")
+    
+    ## Computed property
+    @property
+    def attribute_length(self):
+        return len(self.instance_attribute)
+    
     # INSTANCE METHODS
     def show_instance_attributes(self):
-        print(f"Instance attribute: {self.instance_attribute} | Property name: {self.property_name}")
+        print(f"Instance attribute: {self.instance_attribute} | Property name: {self.property_name} | Enum attribute: {self.enum_attribute.value}")
         print()
     
     # ABSTRACT METHOD
@@ -66,5 +91,4 @@ class ClassName(AbstractMethod):
         print("This abstract method makes sure that all classes with the type AbstractMethod have a method called 'print_attribute'.")
         print(f"Attribute: {self.instance_attribute}")
         print()
-
 

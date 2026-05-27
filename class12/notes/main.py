@@ -1,8 +1,9 @@
-from review import ClassName
+from review import ClassName, EnumClass
 from abstractMethod import Shape, Rectangle, Circle
 
 # Testing ClassName
-object_instance1 = ClassName("attribute", "test")
+object_instance1 = ClassName("attribute", "test", EnumClass.ATTRIBUTE1)
+object_instance7 = ClassName("attribute", "test", EnumClass.ATTRIBUTE3)
 
 # alternative constructor
 object_instance3 = ClassName.from_string("AtTrIbUtE, test")
@@ -38,6 +39,18 @@ except ValueError as e:
     print("Error: ", e)
     print()
 
+try:
+    object_instance8 = ClassName("attribute", "test", "option2")
+except ValueError as e:
+    print("Error: ", e)
+    print()
+
+print("----- PROPERTIES -----")
+# stored & managed property
+print("Stored & managed property (property_name): ", object_instance1.property_name)
+print("Computed property (attribute_length): ", object_instance1.attribute_length)
+print()
+
 print("----- INSTANCE METHOD -----")
 #instance method
 object_instance1.show_instance_attributes()
@@ -47,6 +60,7 @@ print("----- CLASS METHOD -----")
 object_instance1.show_class_attributes()
 
 print("----- ABSTRACT METHOD -----")
+#abstract method
 rectangle = Rectangle(2, 4)
 circle = Circle(3)
 
