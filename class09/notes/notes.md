@@ -11,14 +11,10 @@ class Temperature:
 
     @property # allows to write attribute like a method but access like an attribute
     def celcius(self): 
-	    # gives more control over how the value changes (we can set it in the method)
-        if value >= -273.15:
-            self.__celcius = value
-        else:
-            print("Invalid temperature")
+        return self.__celcius
     
     # setter
-    @celcius.setter
+    @celcius.setter # gives more control over how the value changes (we can set it in the method)
     def celcius(self, value):
         if value >= -273.15:
             self.__celcius = value
