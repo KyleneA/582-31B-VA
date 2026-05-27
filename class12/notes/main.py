@@ -1,4 +1,5 @@
 from review import ClassName
+from abstractMethod import Shape, Rectangle, Circle
 
 # Testing ClassName
 object_instance1 = ClassName("attribute", "test")
@@ -44,3 +45,12 @@ object_instance1.show_instance_attributes()
 print("----- CLASS METHOD -----")
 #class method
 object_instance1.show_class_attributes()
+
+print("----- ABSTRACT METHOD -----")
+rectangle = Rectangle(2, 4)
+circle = Circle(3)
+
+print(f"Lecture Example: rectangle area is: {rectangle.area()}; circle area is: {circle.area()}")
+print()
+
+object_instance1.print_attribute()

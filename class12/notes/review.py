@@ -1,4 +1,11 @@
-class ClassName:
+from abc import ABC, abstractmethod
+
+class AbstractMethod(ABC):
+    @abstractmethod
+    def print_attribute(self):
+        pass
+
+class ClassName(AbstractMethod):
     # CONSTANT
     CONSTANT_NAME_STRING = "never changes"
     CONSTANT_NAME_NUMBER = 25
@@ -52,6 +59,12 @@ class ClassName:
     # INSTANCE METHODS
     def show_instance_attributes(self):
         print(f"Instance attribute: {self.instance_attribute} | Property name: {self.property_name}")
+        print()
+    
+    # ABSTRACT METHOD
+    def print_attribute(self):
+        print("This abstract method makes sure that all classes with the type AbstractMethod have a method called 'print_attribute'.")
+        print(f"Attribute: {self.instance_attribute}")
         print()
 
 
