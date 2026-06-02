@@ -19,15 +19,17 @@ for animal in animals:
     animal.speak()
     print()
 
-# 2
+print()
+print("=====")
+print()
+
+# Exercise 2
 class Vehicle:
     def __init__(self, brand):
         self.brand = brand
     
     def describe(self):
         print(f"This vehicle is from the {self.brand} brand")
-# Create a parent class: Vehicle
-# Child classes Car and Bike
 
 class Car(Vehicle):
     def __init__(self, brand):
@@ -64,3 +66,26 @@ for vehicle in vehicles:
 
     print()
 
+print()
+print("=====")
+print()
+
+# Exercise 3
+class Account:
+    def show_type(self):
+        print(f"This is a generic account type")
+
+class SavingsAccount(Account):
+    def show_type(self):
+        super().show_type()
+        print("Specifically, this is a savings account")
+
+class PremiumAccount(Account):
+    def show_type(self):
+        print("This is a premium account.")
+
+accounts = [Account(), SavingsAccount(), PremiumAccount()]
+
+for account in accounts:
+    account.show_type()
+    print()
