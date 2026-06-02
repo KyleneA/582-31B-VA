@@ -135,3 +135,52 @@ admin1.introduce()
 # The difference between abstract classes and inheritance:
 #   abstract classes define strict rules on what functions need to be implemented by the class.
 #   inheritance allows one Parent class to pass down functions and attributes to a child class.
+
+
+# ===============
+print("=============")
+
+# Method overriding
+
+# a child class can replace or customize inherited behaviour --> this is called overriding.
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def introduce(self):
+        print(f"Hello, my name is {self.name}")
+
+class Employee(Person):
+    def __init__(self, name, dpt):
+        super().__init__(name)
+        
+        self.dpt = dpt
+    
+    # we're overriding the parent function
+    def introduce(self):
+        print(f"Hello, my name is {self.name} and I work at the {self.dpt}")
+
+person = Person("John")
+employee = Employee("Jane", "Software Development")
+
+person.introduce()
+employee.introduce()
+
+# both classes have an introduce() method, but the child version replaces the parent version
+# for employee objects.
+
+class Admin(Person):
+    def __init__(self, name, dpt):
+        super().__init__(name)
+        self.dpt = dpt
+
+    # we override and use the parent method
+    def introduce(self):
+        super().introduce() # first execute parent method
+        print(f"I oversee the {self.dpt} department") # then add the overriden stuff
+
+admin = Admin("Alice", "Software Development")
+admin.introduce()
+
+# super() means go to the parent class!
