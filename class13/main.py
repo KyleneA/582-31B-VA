@@ -184,3 +184,56 @@ admin = Admin("Alice", "Software Development")
 admin.introduce()
 
 # super() means go to the parent class!
+
+# let's move on to
+# Polymorphism
+
+# Polymorphism means different objects can respond to the same method call in their own way
+
+class Teacher(Person):
+    def __init__(self, name, subject):
+        super().__init__(name)
+        self.subject = subject
+
+    def introduce(self):
+        print(f"Hello, my name is {self.name} and I teach {self.subject}")
+
+
+print("========")
+people = [
+    Person("Nadia"),
+    Employee("Ahmed", "Accounting"),
+    Admin("Janice", "HR"),
+    Teacher("Mr. A", "Mathematics")
+]
+
+for person in people:
+    person.introduce()
+
+# the idea of polymorphism is that the same method works on all objects, but each object responds differently.
+
+# another example:
+print()
+print("===========")
+
+class Notification:
+    def send(self, message):
+        print(f"Generic notification: {message}")
+
+class EmailNotification(Notification):
+    def send(self, message):
+        print(f"Sending email: {message}")
+
+class SMSNotification(Notification):
+    def send(self, message):
+        print(f"Sending SMS: {message}")
+
+class FaxNotification(Notification):
+    def send(self, message):
+        super().send(message)
+        print(f"via fax")
+
+notifications = [EmailNotification(), SMSNotification(), FaxNotification(), Notification()]
+
+for notification in notifications:
+    notification.send("Hello!") # polymorphism!
