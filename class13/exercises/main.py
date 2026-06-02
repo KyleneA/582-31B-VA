@@ -9,7 +9,6 @@
 #   Cat
 
 # Override speak in ceach child!
-
 # Dog says "Woof"
 # Cat says "Meow"
 
@@ -19,9 +18,9 @@
 # Create a parent class: Vehicle
 # Child classes Car and Bike
 
-# the share 
-# brand
-# describe()
+# they share:
+#   brand
+#   describe()
 
 # add child-specific behaviour
 
