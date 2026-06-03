@@ -20,7 +20,7 @@ for animal in animals:
     print()
 
 print()
-print("=====")
+print("==========")
 print()
 
 # Exercise 2
@@ -67,7 +67,7 @@ for vehicle in vehicles:
     print()
 
 print()
-print("=====")
+print("==========")
 print()
 
 # Exercise 3
