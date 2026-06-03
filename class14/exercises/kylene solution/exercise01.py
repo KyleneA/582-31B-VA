@@ -78,3 +78,28 @@ except ValueError as error:
     print("Error:", error)
 finally:
     print(acc1.balance)
+
+print()
+print("============================")
+print()
+
+class Temperature:
+    def __init__(self, celcius):
+        if celcius < -273.15:
+            raise ValueError("Celcius cannot be lower than absolute 0")
+        self.celcius = celcius
+
+try:
+    temp1 = Temperature(-272)
+except ValueError as error:
+    print("Error: ", error)
+else:
+    print(temp1.celcius)
+
+try:
+    temp2 = Temperature(-274)
+except ValueError as error:
+    print("Error: ", error)
+else:
+    print(temp2.celcius)
+
