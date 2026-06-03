@@ -5,11 +5,9 @@ class AccountType(Enum):
     CHEQUING = "chequing"
     INVESTMENT = "investement"
 
-
-
 class Account:
     def __init__(self, owner, acc_type, balance):
-        if (owner == ""):
+        if (owner.strip() == ""):
             raise ValueError("Owner cannot be empty")
         if not (isinstance(acc_type, AccountType)):
             raise ValueError("Account type must be a member of AccountType")
@@ -103,3 +101,63 @@ except ValueError as error:
 else:
     print(temp2.celcius)
 
+print()
+print("============================")
+print()
+
+class NegativePriceError(Exception):
+    pass
+
+class Product:
+    def __init__(self, name, price):
+        if name.strip() == "":
+            raise ValueError("Product name cannot be empty")
+        if price < 0:
+            raise NegativePriceError("Product price cannot be a negative number")
+        
+        self.__name = name
+        self.price = price
+    
+    @property
+    def price(self):
+        return self.__price
+    
+    @price.setter
+    def price(self, value):
+        if value < 0:
+            raise NegativePriceError("Product price cannot be a negative number")
+        self.__price = value
+    
+    def show_product(self):
+        return f"Product: {self.__name}: ${self.price}"
+
+try:
+    prod1 = Product("mouse", -1)
+except ValueError as error:
+    print("Error: ", error)
+except NegativePriceError as error:
+    print("Error: ", error)
+else:
+    print(prod1.show_product())
+
+print()
+
+try:
+    prod2 = Product(" ", 4)
+except ValueError as error:
+    print("Error: ", error)
+except NegativePriceError as error:
+    print("Error: ", error)
+else:
+    print(prod2.show_product())
+
+print()
+
+try:
+    prod3 = Product("mouse", 15)
+except ValueError as error:
+    print("Error: ", error)
+except NegativePriceError as error:
+    print("Error: ", error)
+else:
+    print(prod3.show_product())
