@@ -192,5 +192,5 @@ except InvalidGPAError as error:
     print("Could not create student record: ", error)
 except ValueError as error:
     print("Could not create student record: ", error)
-except ValidationError as error:
-    print(error)
+# except ValidationError as error:
+#     print(error)
