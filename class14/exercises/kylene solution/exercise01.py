@@ -78,6 +78,24 @@ finally:
     print(acc1.balance)
 
 print()
+
+try:
+    acc2 = Account("", AccountType.INVESTMENT, 1000)
+except ValueError as error:
+    print("Error:", error)
+else:
+    print(acc2.balance)
+
+print()
+
+try:
+    acc3 = Account("Acc3", "savings", 1000)
+except ValueError as error:
+    print("Error:", error)
+else:
+    print(acc3.balance) 
+
+print()
 print("============================")
 print()
 
