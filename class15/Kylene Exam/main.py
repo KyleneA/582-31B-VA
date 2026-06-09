@@ -22,7 +22,10 @@ except ValueError as error:
 try:
     customer1 = Customer("Bob", "bob@email.com")
     customer2 = Customer("Rob", "rob@email.com")
-    print(customer1.display_info(), customer2.display_info())
+    print("Before trying to change", customer1.display_info(), customer2.display_info())
+    customer1.name = "Joe"
+    customer2.email = "joe@email.com"
+    print("After trying to change", customer1.display_info(), customer2.display_info())
 except ValueError as error:
     print("ERROR:", error)
 
@@ -45,9 +48,17 @@ except ValueError as error:
 try:
     staff1 = Staff("Bob", "bob@email.com")
     staff2 = Staff("Rob", "rob@email.com")
-    print(staff1.display_info(), staff2.display_info())
+    print("Before trying to change", staff1.display_info(), staff2.display_info())
+    staff1.name = "Joe"
+    staff2.email = "joe@email.com"
+    print("After trying to change", staff1.display_info(), staff2.display_info())
 except ValueError as error:
     print("ERROR:", error)
+
+print("==========Polymorphism==========")
+users = [User("Lam", "lam@email.com"), Customer("Sam", "sam@email.com"), Staff("Cam", "cam@email.com")]
+for user in users:
+    print(user.display_info())
 
 print("==========MovieShow==========")
 try:
