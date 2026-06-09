@@ -71,8 +71,10 @@ class MovieShow:
             raise InvalidBookingError("Quantity must be greater than 0")
         elif quantity > MovieShow.MAX_TICKETS_PER_BOOKING:
             raise InvalidBookingError(f"You cannot book more than {MovieShow.MAX_TICKETS_PER_BOOKING} per session")
+        elif self.is_full:
+            raise InvalidBookingError(f"You cannot book tickets for this movie. It is at capacity")
         elif self.booked_seats + quantity > self.capacity:
-            raise InvalidBookingError(f"You cannot book {quantity} tickets. There are only {self.remaining_seats()} seats available.")
+            raise InvalidBookingError(f"You cannot book {quantity} tickets. There are only {self.remaining_seats()} seat(s) available.")
         elif self.status == ShowStatus.CANCELLED:
             raise ShowCancelledError("Booking is closed because the showing has been cancelled")
         else:

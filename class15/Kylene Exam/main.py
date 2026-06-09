@@ -9,31 +9,48 @@ try:
     print(customer1.display_info())
 except ValueError as error:
     print("ERROR:", error)
+finally:
+    print()
+
 try:
     customer1 = Customer("", "bob@email.com")
     print(customer1.display_info())
 except ValueError as error:
     print("ERROR:", error)
+finally:
+    print()
+
 try:
     customer1 = Customer("  ", "bob@email.com")
     print(customer1.display_info())
 except ValueError as error:
     print("ERROR:", error)
+finally:
+    print()
+
 try:
     customer1 = Customer("Bob", "bob@email.com")
     customer2 = Customer("Rob", "rob@email.com")
-    print("Before trying to change", customer1.display_info(), customer2.display_info())
+    print("Before trying to change", customer1.display_info())
+    print("Before trying to change", customer2.display_info())
     customer1.name = "Joe"
     customer2.email = "new_rob@email.com"
-    print("After trying to change", customer1.display_info(), customer2.display_info())
+    print("After trying to change", customer1.display_info())
+    print("After trying to change", customer2.display_info())
 except ValueError as error:
     print("ERROR:", error)
+finally:
+    print()
+
 try:
     customer3 = VIPCustomer("Bob3", "bob@email.com")
     customer4 = VIPCustomer("Rob4", "rob@email.com")
-    print(customer3.display_info(), customer4.display_info())
+    print(customer3.display_info())
+    print(customer4.display_info())
 except ValueError as error:
     print("ERROR:", error)
+finally:
+    print()
 
 print("==========Staff==========")
 try:
@@ -41,30 +58,44 @@ try:
     print(staff1.display_info())
 except ValueError as error:
     print("ERROR:", error)
+finally:
+    print()
+
 try:
     staff1 = Staff("", "bob@email.com")
     print(staff1.display_info())
 except ValueError as error:
     print("ERROR:", error)
+finally:
+    print()
+
 try:
     staff1 = Staff("  ", "bob@email.com")
     print(staff1.display_info())
 except ValueError as error:
     print("ERROR:", error)
+finally:
+    print()
+
 try:
     staff1 = Staff("Bob", "bob@email.com")
     staff2 = Staff("Rob", "rob@email.com")
-    print("Before trying to change", staff1.display_info(), staff2.display_info())
+    print("Before trying to change", staff1.display_info())
+    print("Before trying to change", staff2.display_info())
     staff1.name = "Joe"
     staff2.email = "new_rob@email.com"
-    print("After trying to change", staff1.display_info(), staff2.display_info())
+    print("After trying to change", staff1.display_info())
+    print("After trying to change", staff2.display_info())
 except ValueError as error:
     print("ERROR:", error)
+finally:
+    print()
 
 print("==========Polymorphism==========")
-users = [User("Lam", "lam@email.com"), Customer("Sam", "sam@email.com"), Staff("Cam", "cam@email.com")]
+users = [User("Lam", "lam@email.com"), Customer("Sam", "sam@email.com"), Staff("Cam", "cam@email.com"), VIPCustomer("Tam", "tam@email.com")]
 for user in users:
     print(user.display_info())
+print()
 
 print("==========MovieShow==========")
 try:
@@ -80,6 +111,9 @@ except ShowCancelledError as error:
     print("SHOW CANCELLED ERROR:", error)
 except InvalidStatusError as error:
     print("STATUS ERROR:", error)
+finally:
+    print()
+
 try:
     movie1 = MovieShow("Totoro", -30)
     print(movie1.display_info())
@@ -93,6 +127,9 @@ except ShowCancelledError as error:
     print("SHOW CANCELLED ERROR:", error)
 except InvalidStatusError as error:
     print("STATUS ERROR:", error)
+finally:
+    print()
+
 try:
     movie1 = MovieShow("Totoro", 30, -2)
     print(movie1.display_info())
@@ -106,6 +143,9 @@ except ShowCancelledError as error:
     print("SHOW CANCELLED ERROR:", error)
 except InvalidStatusError as error:
     print("STATUS ERROR:", error)
+finally:
+    print()
+
 try:
     movie1 = MovieShow("Totoro", 30, 32)
     print(movie1.display_info())
@@ -119,6 +159,9 @@ except ShowCancelledError as error:
     print("SHOW CANCELLED ERROR:", error)
 except InvalidStatusError as error:
     print("STATUS ERROR:", error)
+finally:
+    print()
+
 try:
     movie1 = MovieShow("Totoro", 30, 2, "open")
     print(movie1.display_info())
@@ -132,6 +175,9 @@ except ShowCancelledError as error:
     print("SHOW CANCELLED ERROR:", error)
 except InvalidStatusError as error:
     print("STATUS ERROR:", error)
+finally:
+    print()
+
 try:
     movie1 = MovieShow("Totoro", 20)
     print(movie1.display_info())
@@ -153,6 +199,9 @@ except ShowCancelledError as error:
     print("SHOW CANCELLED ERROR:", error)
 except InvalidStatusError as error:
     print("STATUS ERROR:", error)
+finally:
+    print()
+
 try:
     movie2 = MovieShow("Ponyo", 30, 2, ShowStatus.OPEN)
     print(movie2.display_info())
@@ -170,8 +219,11 @@ except ShowCancelledError as error:
     print("SHOW CANCELLED ERROR:", error)
 except InvalidStatusError as error:
     print("STATUS ERROR:", error)
+finally:
+    print()
+
 try:
-    movie3 = MovieShow("Mononoke Hime", 10, 9, ShowStatus.OPEN)
+    movie3 = MovieShow("Princess Mononoke", 10, 9, ShowStatus.OPEN)
     print(movie3.display_info())
     movie3.book_tickets(Customer("Bob", "bob@email.com"), 3)
     print(movie3.display_info())
@@ -185,6 +237,9 @@ except ShowCancelledError as error:
     print("SHOW CANCELLED ERROR:", error)
 except InvalidStatusError as error:
     print("STATUS ERROR:", error)
+finally:
+    print()
+
 try:
     movie4 = MovieShow("Spirited Away", 10, 10, ShowStatus.SOLD_OUT)
     print(movie4.display_info())
@@ -200,11 +255,14 @@ except ShowCancelledError as error:
     print("SHOW CANCELLED ERROR:", error)
 except InvalidStatusError as error:
     print("STATUS ERROR:", error)
+finally:
+    print()
+
 try:
-    movie4 = MovieShow("Spirited Away", 10, 10)
-    print(movie4.display_info())
-    movie4.book_tickets(Customer("Bob", "bob@email.com"), 4)
-    print(movie4.display_info())
+    movie5 = MovieShow("Totoro", 10, 10)
+    print(movie5.display_info())
+    movie5.book_tickets(Customer("Bob", "bob@email.com"), 5)
+    print(movie5.display_info())
 except ValueError as error:
     print("ERROR:", error)
 except InvalidBookingError as error:
@@ -215,3 +273,5 @@ except ShowCancelledError as error:
     print("SHOW CANCELLED ERROR:", error)
 except InvalidStatusError as error:
     print("STATUS ERROR:", error)
+finally:
+    print()
