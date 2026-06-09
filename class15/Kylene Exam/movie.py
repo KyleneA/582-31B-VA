@@ -70,3 +70,5 @@ class MovieShow:
             if self.booked_seats == self.capacity:
                 self.status = ShowStatus.SOLD_OUT
     
+    def cancel_show(self):
+        self.status = ShowStatus.CANCELLED

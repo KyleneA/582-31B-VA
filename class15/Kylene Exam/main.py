@@ -75,12 +75,22 @@ try:
 except ValueError as error:
     print(error)
 try:
-    movie1 = MovieShow("Totoro", 30)
+    movie1 = MovieShow("Totoro", 20)
+    print(movie1.display_info())
+    movie1.book_tickets(customer1, 10)
+    print(movie1.display_info())
+    movie1.book_tickets(customer2, 10)
+    print(movie1.display_info())
+    movie1.book_tickets(customer1, 15)
     print(movie1.display_info())
 except ValueError as error:
     print(error)
 try:
-    movie1 = MovieShow("Totoro", 30, 2, ShowStatus.OPEN)
-    print(movie1.display_info())
+    movie2 = MovieShow("Ponyo", 30, 2, ShowStatus.OPEN)
+    print(movie2.display_info())
+    movie2.cancel_show()
+    print(movie2.display_info())
+    movie2.book_tickets(Customer("Bob", "bob@email.com"), 2)
+    print(movie2.display_info())
 except ValueError as error:
     print(error)
