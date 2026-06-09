@@ -40,6 +40,14 @@ class Customer(User):
         customer_user_info = super().display_info()
         return f"| CUSTOMER | Customer ID: {self.__customer_id} | {customer_user_info}"
 
+class VIPCustomer(Customer):
+    def __init__(self, name, email):
+        super().__init__(name, email)
+    
+    def display_info(self):
+        VIP_info = super().display_info()
+        return f"** VIP ** {VIP_info}"
+
 class Staff(User):
     number_of_employees = 0
 

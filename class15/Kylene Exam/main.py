@@ -1,4 +1,4 @@
-from users import User, Customer, Staff
+from users import User, Customer, Staff, VIPCustomer
 from movie import MovieShow
 from theater import ShowStatus
 from customExceptions import InvalidBookingError, ShowSoldOutError, ShowCancelledError, InvalidStatusError
@@ -24,8 +24,14 @@ try:
     customer2 = Customer("Rob", "rob@email.com")
     print("Before trying to change", customer1.display_info(), customer2.display_info())
     customer1.name = "Joe"
-    customer2.email = "joe@email.com"
+    customer2.email = "new_rob@email.com"
     print("After trying to change", customer1.display_info(), customer2.display_info())
+except ValueError as error:
+    print("ERROR:", error)
+try:
+    customer3 = VIPCustomer("Bob3", "bob@email.com")
+    customer4 = VIPCustomer("Rob4", "rob@email.com")
+    print(customer3.display_info(), customer4.display_info())
 except ValueError as error:
     print("ERROR:", error)
 
@@ -50,7 +56,7 @@ try:
     staff2 = Staff("Rob", "rob@email.com")
     print("Before trying to change", staff1.display_info(), staff2.display_info())
     staff1.name = "Joe"
-    staff2.email = "joe@email.com"
+    staff2.email = "new_rob@email.com"
     print("After trying to change", staff1.display_info(), staff2.display_info())
 except ValueError as error:
     print("ERROR:", error)
