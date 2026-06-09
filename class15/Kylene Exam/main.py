@@ -133,6 +133,8 @@ try:
     print(movie1.display_info())
     movie1.book_tickets(customer2, 10)
     print(movie1.display_info())
+    movie1.reopen_show()
+    print(movie1.display_info())
     movie1.book_tickets(customer1, 15)
     print(movie1.display_info())
 except ValueError as error:
@@ -152,6 +154,51 @@ try:
     print(movie2.display_info())
     movie2.book_tickets(Customer("Bob", "bob@email.com"), 2)
     print(movie2.display_info())
+except ValueError as error:
+    print("ERROR:", error)
+except InvalidBookingError as error:
+    print("BOOKING ERROR:", error)
+except ShowSoldOutError as error:
+    print("SOLD OUT ERROR:", error)
+except ShowCancelledError as error:
+    print("SHOW CANCELLED ERROR:", error)
+except InvalidStatusError as error:
+    print("STATUS ERROR:", error)
+try:
+    movie3 = MovieShow("Mononoke Hime", 10, 9, ShowStatus.OPEN)
+    print(movie3.display_info())
+    movie3.book_tickets(Customer("Bob", "bob@email.com"), 3)
+    print(movie3.display_info())
+except ValueError as error:
+    print("ERROR:", error)
+except InvalidBookingError as error:
+    print("BOOKING ERROR:", error)
+except ShowSoldOutError as error:
+    print("SOLD OUT ERROR:", error)
+except ShowCancelledError as error:
+    print("SHOW CANCELLED ERROR:", error)
+except InvalidStatusError as error:
+    print("STATUS ERROR:", error)
+try:
+    movie4 = MovieShow("Spirited Away", 10, 10, ShowStatus.SOLD_OUT)
+    print(movie4.display_info())
+    movie4.book_tickets(Customer("Bob", "bob@email.com"), 4)
+    print(movie4.display_info())
+except ValueError as error:
+    print("ERROR:", error)
+except InvalidBookingError as error:
+    print("BOOKING ERROR:", error)
+except ShowSoldOutError as error:
+    print("SOLD OUT ERROR:", error)
+except ShowCancelledError as error:
+    print("SHOW CANCELLED ERROR:", error)
+except InvalidStatusError as error:
+    print("STATUS ERROR:", error)
+try:
+    movie4 = MovieShow("Spirited Away", 10, 10)
+    print(movie4.display_info())
+    movie4.book_tickets(Customer("Bob", "bob@email.com"), 4)
+    print(movie4.display_info())
 except ValueError as error:
     print("ERROR:", error)
 except InvalidBookingError as error:
