@@ -31,3 +31,20 @@ class User:
     
     def display_info(self):
         return f"Name: {self.__name} | Email: {self.email}"
+
+class Customer(User):
+    number_of_customers = 0
+
+    @classmethod
+    def add_customer(cls):
+        cls.number_of_customers += 1
+        return cls.number_of_customers
+
+    def __init__(self, name, email):
+        super().__init__(name, email)
+        self.__customer_id = Customer.add_customer()
+    
+    def display_info(self):
+        customer_user_info = super().display_info()
+        return f"| CUSTOMER | Customer ID: {self.__customer_id} | {customer_user_info}"
+
