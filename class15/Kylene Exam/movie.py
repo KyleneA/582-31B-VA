@@ -1,5 +1,6 @@
 from theater import TheaterRoom, ScreaningTime, ShowStatus
 from helperMethods import HelperMethods
+from customExceptions import InvalidBookingError, ShowSoldOutError, ShowCancelledError, InvalidStatusError
 
 class MovieShow:
     MAX_TICKETS_PER_BOOKING = 10
@@ -44,7 +45,7 @@ class MovieShow:
     @status.setter
     def status(self, value):
         if not isinstance(value, ShowStatus):
-            raise ValueError("Status must be a member of ShowStatus")
+            raise InvalidStatusError("Status must be a member of ShowStatus")
         else:
             self.__status = value
 
@@ -56,15 +57,15 @@ class MovieShow:
 
     def book_tickets(self, customer, quantity):
         if quantity < 0:
-            raise ValueError("Quantity must be greater than 0")
+            raise InvalidBookingError("Quantity must be greater than 0")
         elif quantity > MovieShow.MAX_TICKETS_PER_BOOKING:
-            raise ValueError(f"You cannot book more than {MovieShow.MAX_TICKETS_PER_BOOKING} per session")
+            raise InvalidBookingError(f"You cannot book more than {MovieShow.MAX_TICKETS_PER_BOOKING} per session")
         elif self.status == ShowStatus.CANCELLED:
-            raise ValueError("Booking is closed because the showing has been cancelled")
+            raise ShowCancelledError("Booking is closed because the showing has been cancelled")
         elif self.status == ShowStatus.SOLD_OUT:
-            raise ValueError("Booking is closed because the showing is sold out")
+            raise ShowSoldOutError("Booking is closed because the showing is sold out")
         elif self.booked_seats + quantity > self.capacity:
-            raise ValueError(f"You cannot book {quantity} tickets. There are only {self.remaining_seats()} seats available.")
+            raise InvalidBookingError(f"You cannot book {quantity} tickets. There are only {self.remaining_seats()} seats available.")
         else:
             self.booked_seats += quantity
             if self.booked_seats == self.capacity:
