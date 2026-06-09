@@ -48,3 +48,18 @@ class Customer(User):
         customer_user_info = super().display_info()
         return f"| CUSTOMER | Customer ID: {self.__customer_id} | {customer_user_info}"
 
+class Staff(User):
+    number_of_employees = 0
+
+    @classmethod
+    def add_employee(cls):
+        cls.number_of_employees += 1
+        return cls.number_of_employees
+
+    def __init__(self, name, email):
+        super().__init__(name, email)
+        self.__employee_id = Staff.add_employee()
+    
+    def display_info(self):
+        employee_user_info = super().display_info()
+        return f"| STAFF | Employee ID: {self.__employee_id} | {employee_user_info}"
