@@ -1,8 +1,7 @@
-from constants import MAX_TICKETS_PER_BOOKING
-from enums import ShowStatus
-from exceptions import InvalidBookingError
-
-
+from core.constants import MAX_TICKETS_PER_BOOKING
+from core.enums import ShowStatus
+from models.customer import Customer
+from models.movie_show import MovieShow
 
 def main():
     customer = Customer("Ava")
