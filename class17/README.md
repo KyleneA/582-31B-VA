@@ -386,30 +386,6 @@ git branch
 git log --oneline --graph --all
 ```
 
----
-
-# Required Deliverables
-
-Submit:
-
-- the complete project folder
-- the Git repository history intact
-- a screenshot or pasted output of:
-
-```bash id="81016"
-git log --oneline --graph --all
-```
-
-You may also be asked to include:
-
-- a screenshot of the program output
-
-If your instructor requests GitHub, also submit:
-
-- your repository link
-
----
-
 # Minimum Required Project Evolution
 
 Your Git history should clearly show these stages:
