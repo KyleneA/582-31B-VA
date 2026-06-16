@@ -2,12 +2,6 @@ from constants import MAX_TICKETS_PER_BOOKING
 from enums import ShowStatus
 from exceptions import InvalidBookingError
 
-class Customer:
-    def __init__(self, name):
-        self.name = name
-
-    def display_info(self):
-        print(f"Customer: {self.name}")
 
 class MovieShow:
     def __init__(self, title, capacity, status):
