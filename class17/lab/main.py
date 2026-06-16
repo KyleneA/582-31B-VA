@@ -9,15 +9,14 @@ def main():
     customer = Customer("Ava")
     staff = Staff("Sam")
     show = MovieShow("Inception", 20, ShowStatus.OPEN)
-    to_display = [customer, staff, show]
+    max_tickets = f"Max tickets per booking:  {MAX_TICKETS_PER_BOOKING}"
+    to_display = [customer, staff, show, max_tickets]
 
     Helper.displayHelper(to_display)
 
     # customer.display_info()
     # staff.display_info()
     # show.display_info()
-    
-    print("Max tickets per booking:", MAX_TICKETS_PER_BOOKING)
 
 if __name__ == "__main__":
     main()
