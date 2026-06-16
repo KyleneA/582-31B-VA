@@ -3,14 +3,6 @@ from enums import ShowStatus
 from exceptions import InvalidBookingError
 
 
-class MovieShow:
-    def __init__(self, title, capacity, status):
-        self.title = title
-        self.capacity = capacity
-        self.status = status
-
-    def display_info(self):
-        print(f"{self.title} | Capacity: {self.capacity} | Status: {self.status.value}")
 
 def main():
     customer = Customer("Ava")
