@@ -3,3 +3,54 @@ __pycache__
 desktop.ini
 /class12/notes/__pycache__
 class15/Kylene Exam/theater.py
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments (works in nested project folders too)
+.venv/
+venv/
+env/
+ENV/
+
+# Flask instance folders
+instance/
+
+# Environment variable files
+.env
+.env.*
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# VS Code / editors
+.vscode/
+.idea/
+
+# pytest / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Type checking / lint caches
+.mypy_cache/
+.ruff_cache/
+.pyre/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
