@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">home</a>
+                </li>
+                <li>
+                    <a href="/about">about</a>
+                </li>
+                <li>
+                    <a href="/movies">movies</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1> {{movie_title}} </h1>
+
+            {% if movie_title == "unknown movie" %}
+                <p>No movie selected</p>
+                <a href="/movies">return to movies</a>
+                {% else %}
+                
+                {% for movie in movies %}
+                {% if movie.title == movie_title %}
+                <p> 
+                    <b>Year: </b> {{movie.year}} 
+                </p>
+                <p> 
+                    <b>Genre: </b> {{movie.genre}} 
+                </p>
+                {% endif %}
+                {% endfor %}
+                <a href="/movies">return to movies</a>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>
