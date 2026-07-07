@@ -28,19 +28,39 @@
     </header>
 
     <main>
-        <section>
-            <h1> Movies! </h1>
+        <section> 
+            <h1> Filter Movies </h1>
+
+            <p>
+                <a href="/search"> All Genres </a>
+                |
+                <a href="/search?genre=Sci-Fi"> Sci-Fi </a>
+                |
+                <a href="/search?genre=Animation"> Animation </a>
+                |
+                <a href="/search?genre=Drama"> Drama </a>
+                |
+                <a href="/search?genre=Thriller"> Thriller </a>
+            </p>
         </section>
 
         <section>
-            <h2> Site Movies </h2>
+            <h2> {{genre}} </h2>
             <ul>
                 {% for movie in movies %}
                 <li>
-                    {{movie.title}}
-                    <a href="/movie_details?movie={{movie.title}}"> see details </a>
+                    <a href="/movie_details?movie={{movie.title}}">
+                        {{movie.title}} ({{movie.year}})
+                    </a>
+                    {% if genre == "All Movies" %}
+                    | Genre: {{movie.genre}}
+                    {% endif %}
                 </li>
                 {% endfor %}
+
+                {% if not movies %}
+                There are no movies with the {{genre}} genre
+                {% endif %}
             </ul>
         </section>
     </main>

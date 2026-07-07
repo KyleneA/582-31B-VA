@@ -18,5 +18,21 @@ def movies_list():
 @movies.route("/movie_details")
 def movie_details():
     movie_title = request.args.get("movie", "unknown movie")
-    
+
     return render_template("movie_detail.html", movie_title=movie_title, movies=MOVIES)
+
+@movies.route("/search")
+def search():
+    genre = request.args.get("genre", "All Movies")
+
+    if genre == "All Movies":
+        filtered = MOVIES
+
+    else:
+        filtered = []
+
+        for movie in MOVIES:
+            if movie["genre"] == genre:
+                filtered.append(movie)
+    
+    return render_template("search.html", genre=genre, movies=filtered)
