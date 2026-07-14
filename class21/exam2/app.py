@@ -146,13 +146,12 @@ def edit_album(id):
 
 
 @app.route(
-    "/albums/<int:album_id>/delete",
-    methods=["GET"]
-)
-def delete_album(album_id):
-    album = Album.query.get_or_404(album_id)
+    "/albums/delete/<int:id>")
+def delete_album(id):
+    album = Album.query.get_or_404(id)
 
     db.session.delete(album)
+    db.session.commit()
 
     return redirect(
         url_for("index")
