@@ -63,11 +63,11 @@ with app.app_context():
 
 @app.route("/")
 def index():
-    genre = request.args.get("category", "")
+    genre = request.args.get("genre", "")
 
     if genre:
         albums = Album.query.filter_by(
-            artist=genre
+            genre=genre
         ).all()
     else:
         albums = Album.query.all()
