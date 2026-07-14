@@ -151,7 +151,8 @@ def edit_album(id):
 
 
 @app.route(
-    "/albums/delete/<int:id>")
+    "/albums/<int:id>/delete",
+    methods=["POST"])
 def delete_album(id):
     album = Album.query.get_or_404(id)
 
