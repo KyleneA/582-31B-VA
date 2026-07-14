@@ -86,7 +86,7 @@ def index():
 def add_album():
     if request.method == "POST":
         clean_title = request.form["title"].title().strip()
-        clean_artist = request.form["artist"].capitalize().strip()
+        clean_artist = request.form["artist"].strip()
         clean_genre = request.form["genre"].capitalize().strip()
         clean_year = int(request.form["year"])
         clean_stock = int(request.form["stock"])
@@ -102,8 +102,6 @@ def add_album():
         db.session.add(album)
         db.session.commit()
 
-        print("submitted", clean_title)
-
         return redirect(
             url_for("index")
         )
@@ -114,28 +112,35 @@ def add_album():
 
 
 @app.route(
-    "/albums/<int:album_id>/edit",
+    "/albums/<int:id>/edit",
     methods=["GET", "POST"]
 )
-def edit_album(album_id):
-    album = Album.query.get_or_404(album_id)
+def edit_album(id):
+    album = Album.query.get_or_404(id)
 
     if request.method == "POST":
-        album.title = request.form["title"]
-        album.band = request.form["artist"]
-        album.genre = request.form["genre"]
-        album.year = request.form["year"]
-        album.stock = request.form["amount"]
+        clean_title = request.form["title"].title().strip()
+        clean_artist = request.form["artist"].strip()
+        clean_genre = request.form["genre"].capitalize().strip()
+        clean_year = int(request.form["year"])
+        clean_stock = int(request.form["stock"])
+
+        album.title = clean_title
+        album.artist = clean_artist
+        album.genre = clean_genre
+        album.year = clean_year
+        album.stock = clean_stock
+
+        db.session.commit()
 
         return redirect(
             url_for(
-                "edit_album",
-                id=album.id
+                "index"
             )
         )
 
     return render_template(
-        "add_album.html",
+        "edit_album.html",
         album=album
     )
 
