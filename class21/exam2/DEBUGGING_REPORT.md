@@ -37,33 +37,33 @@ I ran the command `flask --app app run --debug` to check that I received no erro
 -----
 -----
 
-## Bug title
+## Routing errors
 
 **File:**  
-Name of the file.
+`base.html`
 
 **Problem:**  
-What was incorrect?
+1. anchor link for navigation bar in `base.html` refers to *albums* and *add* (routing methods don't exist) instead of **index** and **add_album**
 
 **Fix:**  
-What did you change?
+1. I updated the routing method names to ensure 
 
 **Test:**  
-How did you confirm that it worked?
+I refreshed the page to see if the build error disappeared
 
 -----
 -----
 
-## Bug title
+## Database operation errors
 
 **File:**  
-Name of the file.
+`app.py`
 
 **Problem:**  
-What was incorrect?
+1. The code adding the album to the database was missing when creating the "albums/add" route
 
 **Fix:**  
-What did you change?
+1. I added `db.session.add(album)` to line 96 prior to commiting to the database
 
 **Test:**  
 How did you confirm that it worked?
