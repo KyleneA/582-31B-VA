@@ -21,10 +21,9 @@
         
             <select id="genre" name="genre" required>
                 <option value="">Choose a genre</option>
-                <option value="Electronic">Electronic</option>
-                <option value="Rock">Rock</option>
-                <option value="Hip-Hop">Hip-Hop</option>
-                <option value="Experimental">Experimental</option>
+                {% for genre in genres %}
+                <option value="{{ genre }}">{{ genre }}</option>
+                {% endfor %}
             </select>
         </p>
     
@@ -37,7 +36,7 @@
         <p>
                 <label for="stock">Stock</label>
             
-                <input id="stock" name="stock" type="number" min="0" step="1" required />
+                <input id="stock" name="stock" type="number" min="0" step="1" value="0" required />
         </p>
     
         <button type="submit">Save Album</button>

@@ -84,10 +84,12 @@ def index():
     methods=["GET", "POST"]
 )
 def add_album():
+    genres = ["Electronic", "Rock", "Hip-Hop", "Experimental"]
+
     if request.method == "POST":
         clean_title = request.form["title"].title().strip()
         clean_artist = request.form["artist"].strip()
-        clean_genre = request.form["genre"].capitalize().strip()
+        clean_genre = request.form["genre"].title().strip()
         clean_year = int(request.form["year"])
         clean_stock = int(request.form["stock"])
 
@@ -107,7 +109,8 @@ def add_album():
         )
 
     return render_template(
-        "add_album.html"
+        "add_album.html",
+        genres=genres
     )
 
 
@@ -117,11 +120,12 @@ def add_album():
 )
 def edit_album(id):
     album = Album.query.get_or_404(id)
+    genres = ["Electronic", "Rock", "Hip-Hop", "Experimental"]
 
     if request.method == "POST":
         clean_title = request.form["title"].title().strip()
         clean_artist = request.form["artist"].strip()
-        clean_genre = request.form["genre"].capitalize().strip()
+        clean_genre = request.form["genre"].title().strip()
         clean_year = int(request.form["year"])
         clean_stock = int(request.form["stock"])
 
@@ -141,7 +145,8 @@ def edit_album(id):
 
     return render_template(
         "edit_album.html",
-        album=album
+        album=album,
+        genres=genres
     )
 
 
