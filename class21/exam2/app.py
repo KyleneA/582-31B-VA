@@ -85,19 +85,27 @@ def index():
 )
 def add_album():
     if request.method == "POST":
+        clean_title = request.form["title"].title().strip()
+        clean_artist = request.form["artist"].capitalize().strip()
+        clean_genre = request.form["genre"].capitalize().strip()
+        clean_year = int(request.form["year"])
+        clean_stock = int(request.form["stock"])
+
         album = Album(
-            title=request.form["album_name"],
-            artist=request.form["artist"],
-            genre=request.form["genre"],
-            year=request.form["year"],
-            stock=request.form["stock"]
+            title=clean_title,
+            artist=clean_artist,
+            genre=clean_genre,
+            year=clean_year,
+            stock=clean_stock
         )
 
         db.session.add(album)
         db.session.commit()
 
+        print("submitted", clean_title)
+
         return redirect(
-            url_for("albums")
+            url_for("index")
         )
 
     return render_template(

@@ -71,19 +71,19 @@ How did you confirm that it worked?
 -----
 -----
 
-## Bug title
+## FORM or Template error
 
 **File:**  
-Name of the file.
+`add_album.html`
 
 **Problem:**  
-What was incorrect?
+The form method was get instead of POST
 
 **Fix:**  
-What did you change?
+form method to POST
 
 **Test:**  
-How did you confirm that it worked?
+Tried adding an album
 
 -----
 -----
