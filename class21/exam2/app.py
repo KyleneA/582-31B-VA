@@ -74,7 +74,7 @@ def index():
 
     return render_template(
         "index.html",
-        album=albums,
+        albums=albums,
         selected_genre=genre
     )
 

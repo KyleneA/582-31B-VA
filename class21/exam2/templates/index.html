@@ -21,17 +21,17 @@
         <a href="{{ url_for('add_album') }}"> Add an album </a>
     </p>
     
-    {% if album %}
+    {% if albums %}
     
     <div class="album-grid">
         {% for item in albums %}
     
         <article class="album-card">
-            <h3>{{ item.name }}</h3>
+            <h3>{{ item.title }}</h3>
         
             <p>
                 <strong>Artist:</strong>
-                {{ item.band }}
+                {{ item.artist }}
             </p>
     
             <p>
@@ -52,7 +52,7 @@
             <p>
                 <strong>Availability:</strong>
             
-                {% if item.in_stock() %} In stock {% else %} Sold out {% endif %}
+                {% if item.in_stock %} In stock {% else %} Sold out {% endif %}
             </p>
     
             <a
